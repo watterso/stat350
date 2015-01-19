@@ -1,0 +1,60 @@
+\documentclass{article}
+\title{Stat 350: Lab 1}
+\date{January 15, 2015}
+\author{James Watterson}
+<<label=setup,echo=FALSE>>=
+library(lattice)
+@
+\setlength{\voffset}{-0.75in}
+\setlength{\headsep}{10pt}
+\begin{document}
+\maketitle
+\renewcommand\thesection{\Alph{section}}
+\section{Distribution of IQ scores}
+    \begin{enumerate}
+      \item 
+<<>>=
+iqs = read.table('eg01-14iq.txt', header=TRUE)
+@
+      \item
+<<>>=
+histogram(~IQ, iqs, main = "Histogram of IQs", col="blue")
+@
+    \end{enumerate}
+\pagebreak
+\section{Grades and self-concept}
+    \begin{enumerate}
+      \item
+<<eval=FALSE>>=
+sev = read.table('ex01-44sevengr.txt', header=TRUE)
+@
+      \item 5 variables, ID, GPA, IQ, and SelfConcept are quantitative variables and Gender is a categorical variable.
+      \item
+<<eval=FALSE>>=
+histogram(~ID, sev, main="Histogram of IDs", col="blue")
+histogram(~GPA, sev, main="Histogram of GPAs", col="blue")
+histogram(~IQ, sev, main="Histogram of IQs", col="blue")
+histogram(~SelfConcept, sev, main="Histogram of Self Concept", col="blue")
+@
+\end{enumerate}
+
+\begin{minipage}[b]{.5\textwidth}
+<<echo=FALSE>>=
+sev = read.table('ex01-44sevengr.txt', header=TRUE)
+histogram(~ID, sev, main="Histogram of IDs", col="blue")
+@
+
+<<echo=FALSE>>=
+histogram(~IQ, sev, main="Histogram of IQs", col="blue")
+@
+\end{minipage}%
+\begin{minipage}[b]{.5\textwidth}
+<<echo=FALSE>>=
+histogram(~GPA, sev, main="Histogram of GPAs", col="blue")
+@
+
+<<echo=FALSE>>=
+histogram(~SelfConcept, sev, main="Histogram of Self Concept", col="blue")
+@
+\end{minipage}
+\end{document}
