@@ -14,7 +14,7 @@ library(lattice)
     \begin{enumerate}
       \item 
 <<>>=
-iqs = read.table('eg01-14iq.txt', header=TRUE)
+iqs <- read.table('eg01-14iq.txt', header=TRUE)
 @
       \item
 <<>>=
@@ -26,7 +26,7 @@ histogram(~IQ, iqs, main = "Histogram of IQs", col="blue")
     \begin{enumerate}
       \item
 <<eval=FALSE>>=
-sev = read.table('ex01-44sevengr.txt', header=TRUE)
+sev <- read.table('ex01-44sevengr.txt', header=TRUE)
 @
       \item 5 variables, ID, GPA, IQ, and SelfConcept are quantitative variables and Gender is a categorical variable.
       \item
@@ -40,7 +40,7 @@ histogram(~SelfConcept, sev, main="Histogram of Self Concept", col="blue")
 
 \begin{minipage}[b]{.5\textwidth}
 <<echo=FALSE>>=
-sev = read.table('ex01-44sevengr.txt', header=TRUE)
+sev <- read.table('ex01-44sevengr.txt', header=TRUE)
 histogram(~ID, sev, main="Histogram of IDs", col="blue")
 @
 
