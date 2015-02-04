@@ -1,0 +1,35 @@
+\documentclass{article}
+\title{\vspace{-30pt}Stat 350: Lab 3\vspace{-16pt}}
+\author{James Watterson}
+\date{\vspace{-10pt}February 4, 2015}
+<<label=setup,echo=FALSE>>=
+library(lattice)
+read_chunk("lab3.R")
+@
+\setlength{\voffset}{-.75in}
+\setlength{\headsep}{5pt}
+\setlength{\textheight}{675pt}
+\setlength{\marginparwidth}{40pt}
+\setlength{\textwidth}{436pt}
+\setlength{\oddsidemargin}{8pt}
+%\usepackage{showframe}
+\begin{document}
+\maketitle
+\renewcommand\thesection{\Alph{section}}
+\section{%TODO SECTION NAME}
+<<A,echo=FALSE>>=
+@
+\begin{enumerate}
+\item
+<<A.1,comment=NA,prompt=TRUE>>=
+@
+\end{enumerate}
+\section{%TODO SECTION NAME}
+<<B,echo=FALSE>>=
+@
+\begin{enumerate}
+\item
+<<B.1,comment=NA,prompt=TRUE>>=
+@
+\end{enumerate}
+\end{document}
