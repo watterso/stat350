@@ -4,6 +4,7 @@
 \author{James Watterson}
 <<label=setup,echo=FALSE>>=
 library(lattice)
+read_chunk("lab1.R")
 @
 \setlength{\voffset}{-0.75in}
 \setlength{\headsep}{10pt}
@@ -13,34 +14,26 @@ library(lattice)
 \section{Distribution of IQ scores}
     \begin{enumerate}
       \item 
-<<>>=
-iqs <- read.table('eg01-14iq.txt', header=TRUE)
+<<A.1>>=
 @
       \item
-<<>>=
-histogram(~IQ, iqs, main = "Histogram of IQs", col="blue")
+<<A.2>>=
 @
     \end{enumerate}
 \pagebreak
 \section{Grades and self-concept}
     \begin{enumerate}
       \item
-<<eval=FALSE>>=
-sev <- read.table('ex01-44sevengr.txt', header=TRUE)
+<<B.1>>=
 @
       \item 5 variables, ID, GPA, IQ, and SelfConcept are quantitative variables and Gender is a categorical variable.
       \item
-<<eval=FALSE>>=
-histogram(~ID, sev, main="Histogram of IDs", col="blue")
-histogram(~GPA, sev, main="Histogram of GPAs", col="blue")
-histogram(~IQ, sev, main="Histogram of IQs", col="blue")
-histogram(~SelfConcept, sev, main="Histogram of Self Concept", col="blue")
+<<B.2,eval=FALSE>>=
 @
 \end{enumerate}
 
 \begin{minipage}[b]{.5\textwidth}
 <<echo=FALSE>>=
-sev <- read.table('ex01-44sevengr.txt', header=TRUE)
 histogram(~ID, sev, main="Histogram of IDs", col="blue")
 @
 

@@ -10,5 +10,5 @@ tex:
 	cd temp && r -e "library(knitr);knit('../lab1.Rnw')"
 
 clean:
-	rm lab1.pdf
+	rm -rf lab1.pdf
 	rm -rf temp 

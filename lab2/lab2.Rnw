@@ -5,19 +5,7 @@
 <<label=setup,echo=FALSE>>=
 #Do all the computation, display later
 library(lattice)
-d_data <- read.table("earthdensity.txt", header=TRUE)
-d_fnum <- fivenum(d_data[,1])
-d_mean <- mean(d_data[,1])
-d_sd <- sd(d_data[,1])
-d_median <- median(d_data[,1])
-water_density <- 999.97
-earth_density <- d_mean*water_density
-crp <- read.table("ex01-73crp.txt", header=TRUE)
-f_num <- fivenum(crp[,1])
-iqr <- f_num[4]-f_num[2]
-min_out <- f_num[2] - 1.5*iqr
-max_out <- f_num[4] + 1.5*iqr
-outliers <- c(crp[crp$CRP < min_out,], crp[crp$CRP > max_out,])
+read_chunk("lab2.R")
 @
 \setlength{\voffset}{-.75in}
 \setlength{\headsep}{5pt}
@@ -30,52 +18,37 @@ outliers <- c(crp[crp$CRP < min_out,], crp[crp$CRP > max_out,])
 \maketitle
 \renewcommand\thesection{\Alph{section}}
 \section{Density of the Earth}
+<<A,echo=FALSE>>=
+@
 \begin{enumerate}
 \item
-<<>>=
-fivenum(d_data[,1])
+<<A.1,comment=NA,prompt=TRUE>>=
 @
 \item
-<<fig.height=4>>=
-bwplot(d_data[,1], xlab="Water Density Coefficient")
+<<A.2,comment=NA,prompt=TRUE,fig.height=4>>=
 @
 \item The median is close to the mean, within 1 standard deviation!
-<<echo=c(1:3)>>=
-d_mean <- mean(d_data[,1])        
-d_sd <- sd(d_data[,1])            
-d_median <- median(d_data[,1])
-c(d_mean, d_sd, d_median)
+<<A.3,comment=NA,prompt=TRUE>>=
 @
 \item Given how close mean and median are, either is a good estimator for use with the density of water.
-<<echo=c(1,2)>>=
-water_density <- 999.97           # in kg/m^3
-earth_density <- d_mean*water_density
-earth_density
+<<A.3,comment=NA,prompt=TRUE>>=
 @
 \end{enumerate}
 \section{Concentration of CRP in Bloodstream}
+<<B,echo=FALSE>>=
+@
 \begin{enumerate}
 \item
-<<>>=
-fivenum(crp[,1])
+<<B.1,comment=NA,prompt=TRUE>>=
 @
 \item This plot is skewed right, illustrated by the long right tail.
-<<fig.height=4>>=
-bwplot(crp[,1], xlab="CRP Concentration (mg/l)")
+<<B.2,comment=NA,prompt=TRUE,fig.height=4>>=
 @
 \item Yes there are outliers, to the right of the graph
-<<echo=c(1:5)>>=
-f_num <- fivenum(crp[,1])
-iqr <- f_num[4]-f_num[2]
-min_out <- f_num[2] - 1.5*iqr
-max_out <- f_num[4] + 1.5*iqr
-outliers <- c(crp[crp$CRP < min_out,], crp[crp$CRP > max_out,])
-outliers
+<<B.3,comment=NA,prompt=TRUE>>=
 @
-\pagebreak
 \item The IQR rule is a good guide to where outliers lie. This is clearly illustrated by the fact that the frequency in the histogram is much higher to the left, whereas it is very small on the right, where the outliers lie.
-<<fig.height=4>>=
-histogram(~CRP,crp, xlab="CRP Concentration (mg/l)", col="blue")
+<<B.4,comment=NA,prompt=TRUE,fig.height=4>>=
 @
 \end{enumerate}
 \end{document}
