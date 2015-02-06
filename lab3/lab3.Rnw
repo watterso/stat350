@@ -3,7 +3,6 @@
 \author{James Watterson}
 \date{\vspace{-10pt}February 4, 2015}
 <<label=setup,echo=FALSE>>=
-library(lattice)
 read_chunk("lab3.R")
 @
 \setlength{\voffset}{-.75in}
@@ -13,23 +12,69 @@ read_chunk("lab3.R")
 \setlength{\textwidth}{436pt}
 \setlength{\oddsidemargin}{8pt}
 %\usepackage{showframe}
+\usepackage[T1]{fontenc}
 \begin{document}
 \maketitle
+<<Imports,echo=FALSE>>=
+@
+<<Functions,echo=FALSE>>=
+@
 \renewcommand\thesection{\Alph{section}}
-\section{%TODO SECTION NAME}
+\section{Generated Sample of 10}
 <<A,echo=FALSE>>=
 @
 \begin{enumerate}
-\item
-<<A.1,comment=NA,prompt=TRUE>>=
+\item The histogram roughly follows the normal density curve but because there are so few units, it is a very rough approximation.
+<<A_1,comment=NA,prompt=TRUE,fig.height=4>>=
+@
+\item The plot does not show any important deviations, the values follow roughly the linear line that goes through the first and third quantiles.
+<<A_2,comment=NA,prompt=TRUE,fig.height=4>>=
 @
 \end{enumerate}
-\section{%TODO SECTION NAME}
+\section{Generated Sample of 100}
 <<B,echo=FALSE>>=
 @
 \begin{enumerate}
-\item
-<<B.1,comment=NA,prompt=TRUE>>=
+\item The histogram follows very closely the normal curve, with a distinctive hump in the middle.
+<<B_1,comment=NA,prompt=TRUE,fig.height=4>>=
+@
+\item The plot does not show any important deviations, the values follow very closely the linear line that goes through the first and third quantiles
+<<B_2,comment=NA,prompt=TRUE,fig.height=4>>=
+@
+\item The plots from A and B may have different values but they are the same plot to different degrees of granularity because the values are all from the same normal distribution. In general plots from B are better because they have more units of data.
+\end{enumerate}
+\section{Skews and Tails in Data}
+<<C,echo=FALSE>>=
+@
+\begin{enumerate}
+\item Skewed and tailed data produced histograms as expected, the left and right skews showed a clustering on the upper and lower end of the values respectively. The short tail data was over a shorter range and the long tail data was over a much larger range. 
+<<C_1,comment=NA,prompt=TRUE,fig.height=4,>>=
+@
+\item Skewed and tailed data produced normal quantile plots as expected, the left and right skews bent towards logarithmic and exponential curves respectively as opposed to the standard nearly linear curve of unskewed data. Similarly, the long tail data was much more flat than normal and the short tail data much more steep.
+<<C_2,comment=NA,prompt=TRUE,fig.height=4>>=
 @
 \end{enumerate}
+\section{Call Center Data}
+<<D,echo=FALSE>>=
+@
+\begin{enumerate}
+\item Based on the histogram, this data appears to be either right skewed or long tailed. The clustering of data near the low values is what implies whereas the large range is the source of my long tailed suspicions, either way the quantile plot should be able to confirm.
+<<D_1,comment=NA,prompt=TRUE,fig.height=4>>=
+@
+\item The quantile plot confirms the fact that this is a long tailed distribution. Although the curve bends slightly towards expenontial (a sign of a right skew) the much diminished slope (compared to a standard linear curve of y=x) such that it is almost flat, confirms suspicions that it is in fact long tailed.
+<<D_2,comment=NA,prompt=TRUE,fig.height=4>>=
+@
+\end{enumerate}
+\pagebreak
+\renewcommand\thesection{Appendix:}
+\section{Data and Functions}
+\subsection*{Functions:}
+<<Functions,eval=FALSE>>=
+@
+\subsection*{Generation of Data:}
+<<Composite,ref.label=c('A','B','C'),eval=FALSE>>=
+@
+\subsection*{Data:}
+<<Data,echo=FALSE,results='asis'>>=
+@
 \end{document}
