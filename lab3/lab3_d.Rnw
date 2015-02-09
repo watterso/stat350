@@ -1,0 +1,50 @@
+\documentclass{article}
+\title{\vspace{-30pt}Stat 350: Lab 3 -- Part D\vspace{-16pt}}
+\author{James Watterson}
+\date{\vspace{-10pt}February 8, 2015}
+<<label=setup,echo=FALSE>>=
+read_chunk("lab3.R")
+@
+\setlength{\voffset}{-.75in}
+\setlength{\headsep}{5pt}
+\setlength{\textheight}{675pt}
+\setlength{\marginparwidth}{40pt}
+\setlength{\textwidth}{436pt}
+\setlength{\oddsidemargin}{8pt}
+%\usepackage{showframe}
+\usepackage[T1]{fontenc}
+\begin{document}
+\maketitle
+<<Imports,echo=FALSE>>=
+@
+<<Functions,echo=FALSE>>=
+@
+\renewcommand\thesection{\Alph{section}}
+\section{Generated Sample of 10}
+These graphs don't look very similar because there is too small of a sample size for them to really exhibit the characteristics of their trend. Furthermore, all their values are (pseudo)randomly generated, so there is a really low likelihood the graphs would be randomly generated to the exact same value.
+
+<<ref.label=c('A','A_1','A_2'),echo=FALSE,fig.height=3>>=
+@
+<<ref.label=c('A','A_1','A_2'),echo=FALSE,fig.height=3>>=
+@
+<<ref.label=c('A','A_1','A_2'),echo=FALSE,fig.height=3>>=
+@
+\section{Generated Sample of 100}
+These graphs look similar because the sample size is large enough so that they can exhibit characteristics of their distribution. But the graphs are not 100\% identical because the value for each curve are (pseudo)randomly generated.
+
+<<ref.label=c('B','B_1','B_2'),echo=FALSE,fig.height=3>>=
+@
+<<ref.label=c('B','B_1','B_2'),echo=FALSE,fig.height=3>>=
+@
+<<ref.label=c('B','B_1','B_2'),echo=FALSE,fig.height=3>>=
+@
+\section{Skews and Tails in Data}
+The histograms of the left and right skews look similar because of their nature of clinging to one side or another. However, The histograms of the long and short tails do not look similar because over the same range, a short-tailed distribution could exist in many different parts and similarly the mean of a long-tailed distribution could be in many different locations but still stretch of the same range of another long-tailed distribution with a different mean. Therefore, because the values for the long and short tails are (pseudo)randomly generated, they render different graphs. Finally, the quantile plots are also in different locations for all graphs because of the (pseudo)random generation, but their behavior (slope tails and slight curvature for skews) is the same.
+
+<<ref.label=c('C','C_1','C_2'),echo=FALSE,fig.height=3>>=
+@
+<<ref.label=c('C','C_1','C_2'),echo=FALSE,fig.height=3>>=
+@
+<<ref.label=c('C','C_1','C_2'),echo=FALSE,fig.height=3>>=
+@
+\end{document}
