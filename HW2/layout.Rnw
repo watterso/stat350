@@ -1,0 +1,31 @@
+\documentclass{article}
+\setlength{\voffset}{-.75in}
+\setlength{\headsep}{5pt}
+\setlength{\textheight}{675pt}
+\setlength{\marginparwidth}{40pt}
+\setlength{\textwidth}{436pt}
+\setlength{\oddsidemargin}{8pt}
+<<label=setup,echo=FALSE>>=
+read_chunk("code.R")
+@
+\begin{document}
+
+\section*{1 PDF and CDF validity}
+There are two conditions that determine whether a PDF is valid. First it must be non-negative and secondly its integral must add to 1 on its range. Of the PDF's in problem 1, b and d are invalid. This is proven by their CDF's which do not approach 1 as x grows.
+
+<<ref.label=c('1_A','1_B','1_C','1_D'),echo=FALSE,fig.height=4>>=
+@
+\pagebreak
+\section*{2. $f(x)= \frac{x}{8}$ on $0 < x < 4$} 
+<<2_B,echo=FALSE,fig.height=4>>=
+@
+\pagebreak
+\section*{5. $f(x)= 0.5e^{-0.5x}$ on $0 < x$} 
+<<5_A,echo=FALSE,fig.height=4>>=
+@
+\pagebreak
+\section*{Appendix}
+<<ref.label=c('1_A','1_B','1_C','1_D','2_B','5_A'),echo=TRUE,eval=FALSE,tidy=TRUE>>=
+@
+
+\end{document}
