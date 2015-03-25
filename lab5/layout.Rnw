@@ -1,0 +1,49 @@
+\documentclass{article}
+\title{\vspace{-30pt}Stat 350: Lab 4\vspace{-16pt}}
+\author{James Watterson}
+\date{\vspace{-10pt}March 12, 2015}
+\setlength{\voffset}{-.75in}
+\setlength{\headsep}{5pt}
+\setlength{\textheight}{675pt}
+\setlength{\marginparwidth}{40pt}
+\setlength{\textwidth}{436pt}
+\setlength{\oddsidemargin}{8pt}
+\renewcommand\theenumi{\alph{enumi}}
+<<echo=FALSE>>=
+read_chunk("code.R")
+@
+<<setup,echo=FALSE>>=
+@
+\begin{document}
+\maketitle
+\section*{A. Number of Friends on Facebook}
+\subsection*{1. Power of Test Given Parameters}
+The graphs below show roughly normal behavior... TODO EXPAND \\
+<<A_1,echo=FALSE,fig.height=4>>=
+@
+\subsection*{2. Appropriateness of T-Test}
+Yes because normal TODO EXPAND
+\subsection*{3. Calculating Confidence Interval - By Hand}
+<<A_3,echo=FALSE,eval=TRUE>>=
+@
+Critical Value ($\alpha$): \Sexpr{a} \\
+Sample Mean ($\bar{x}$): \Sexpr{x_bar}\\ 
+Standard Deviation ($\sigma$): \Sexpr{std}\\
+Standard Error: \Sexpr{stderr}\\
+Margin of Error: \Sexpr{marg_error}\\
+Confidence Interval: $\lbrack \Sexpr{conf_int[1]}, \Sexpr{conf_int[2]} \rbrack$ \\
+<<A_3,echo=TRUE,eval=FALSE>>=
+@
+\subsection*{4. Calculating Confidence Interval - Via Software}
+<<A_4,echo=TRUE>>=
+@
+\subsection*{5. Interpretation}
+TODO
+\section*{B. Picks in a 1-lb bag}
+
+\pagebreak
+\section*{Code}
+<<ref.label=c('setup','A_1','A_3'),echo=TRUE,eval=FALSE,tidy=TRUE>>=
+@
+
+\end{document}
