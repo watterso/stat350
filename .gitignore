@@ -4,3 +4,5 @@
 .Rproj.user
 *.Rproj
 temp[0-9]*
+bin/*
+*/bin/*

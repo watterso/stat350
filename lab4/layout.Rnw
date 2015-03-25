@@ -1,0 +1,54 @@
+\documentclass{article}
+\title{\vspace{-30pt}Stat 350: Lab 4\vspace{-16pt}}
+\author{James Watterson}
+\date{\vspace{-10pt}March 12, 2015}
+\setlength{\voffset}{-.75in}
+\setlength{\headsep}{5pt}
+\setlength{\textheight}{675pt}
+\setlength{\marginparwidth}{40pt}
+\setlength{\textwidth}{436pt}
+\setlength{\oddsidemargin}{8pt}
+\renewcommand\theenumi{\alph{enumi}}
+<<echo=FALSE>>=
+read_chunk("code.R")
+@
+<<setup,echo=FALSE>>=
+@
+\begin{document}
+\maketitle
+\section*{A. Interpretation of a Confidence Interval}
+<<A,echo=FALSE>>=
+@
+Below is a table showing the range of a 95\% confidence interval for 30 normal distributions (the 1st and 2nd columns) after is a column indicating whether the range contains the value $\mu = 10$ (1 meaning it does and 0 it does not). In total there are \Sexpr{mean_in_range} ranges that contain the mean, a number that is expected, because at such a high confidence interval one expects almost all ranges to contain the mean.
+<<A_table,echo=FALSE,results='asis'>>=
+@
+\section*{B. Water Quality Testing}
+<<B,echo=FALSE>>=
+@
+<<B_1,echo=FALSE>>=
+@
+\subsection*{1. Power of Test Given Parameters}
+\begin{enumerate}
+  \item For $\alpha = 1\%$ and $\mu_{alt} = 6.5$ the power is \Sexpr{b1a}
+  \item For $\alpha = 5\%$ and $\mu_{alt} = 6.5$ the power is \Sexpr{b1b}
+  \item For $\alpha = 1\%$ and $\mu_{alt} = 6.75$ the power is \Sexpr{b1c}
+  \item For $\alpha = 5\%$ and $\mu_{alt} = 6.5$ with $n = 5$ the power is \Sexpr{b1d}
+  \item Increasing any of the parameters (significance level, alternative $\mu$, and sample size) also increases the power. The degree of this relationship requires more study, but what is clear is that the relationship is positive.
+\end{enumerate}
+\subsection*{2. Power Curve with Sample Size of 3}
+<<B_2,echo=FALSE,fig.height=4>>=
+@
+\subsection*{3. Desired Sample Size}
+<<B_3,echo=FALSE>>=
+@
+The sample size required to have a power of atleast $0.90$ at $\alpha = 1\%$ with $\mu_{alt} = 6.3$ is \Sexpr{calc_n_size}, see the graph below for proof. \\
+<<B_3_graph,echo=FALSE,fig.height=4>>=
+@
+
+
+\pagebreak
+\section*{Code}
+<<ref.label=c('setup','A_1','A_2','B','B_1','B_2','B_3'),echo=TRUE,eval=FALSE,tidy=TRUE>>=
+@
+
+\end{document}

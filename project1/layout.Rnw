@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{colortbl, xcolor}
+\setlength{\voffset}{-.95in}
+\setlength{\headsep}{5pt}
+\setlength{\textheight}{725pt}
+\setlength{\marginparwidth}{40pt}
+\setlength{\textwidth}{436pt}
+\setlength{\oddsidemargin}{8pt}
+\pagenumbering{gobble}
+<<echo=FALSE>>=
+read_chunk("code.R")
+@
+<<Setup,echo=FALSE>>=
+@
+\begin{document}
+\section*{4. Exponential}
+This Exponential distribution is relatively normal because the histogram follows the normal curve created from the theoretical values of mean and standard deviation. Furthermore the quantile plot is also a nice curve thats follows relatively $y = x$. The best number of samples is at $n = 80$.
+<<ref.label=c('4','4_table','4_graphs'),echo=FALSE,results='asis',fig.height=4>>=
+@
+\section*{5. Poisson}
+This Poisson distribution is relatively normal because the histogram follows the normal curve created from the theoretical values of mean and standard deviation. Furthermore the quantile plot is also a nice curve thats follows relatively $y = x$. The best number of samples is at $n = 30$.
+<<ref.label=c('5','5_table','5_graphs'),echo=FALSE,results='asis',fig.height=4>>=
+@
+\section*{6. Dice Rolls}
+This simulation of dice rolls is relatively normal because the histogram follows the normal curve created from the theoretical values of mean and standard deviation. Furthermore the quantile plot is also a nice curve thats follows relatively $y = x$. The best number of samples is at $n = 35$.
+<<ref.label=c('6','6_table','6_graphs'),echo=FALSE,results='asis',fig.height=4>>=
+@
+\end{document}
