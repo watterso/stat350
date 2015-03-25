@@ -1,5 +1,5 @@
 \documentclass{article}
-\title{\vspace{-30pt}Stat 350: Lab 3 -- Part D\vspace{-16pt}}
+\title{\vspace{-30pt}Stat 350: Lab 3 -- Part E\vspace{-16pt}}
 \author{James Watterson}
 \date{\vspace{-10pt}February 8, 2015}
 <<label=setup,echo=FALSE>>=
