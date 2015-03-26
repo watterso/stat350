@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage{amssymb}
 \title{\vspace{-30pt}Stat 350: Lab 4\vspace{-16pt}}
 \author{James Watterson}
 \date{\vspace{-10pt}March 12, 2015}
@@ -8,7 +9,6 @@
 \setlength{\marginparwidth}{40pt}
 \setlength{\textwidth}{436pt}
 \setlength{\oddsidemargin}{8pt}
-\renewcommand\theenumi{\alph{enumi}}
 <<echo=FALSE>>=
 read_chunk("code.R")
 @
@@ -40,7 +40,43 @@ Confidence Interval: $\lbrack \Sexpr{conf_int[1]}, \Sexpr{conf_int[2]} \rbrack$ 
 \subsection*{5. Interpretation}
 TODO
 \section*{B. Picks in a 1-lb bag}
-
+\subsection*{1. Plots of the Data}
+<<B_1,echo=FALSE,fig.height=4>>=
+@
+\subsection*{2. Distribution}
+Blahblah todo
+\subsection*{3. Appropriateness of T-Test}
+Yes because normal TODO EXPAND
+\subsection*{4. Requested Values}
+<<B_4,echo=FALSE,eval=TRUE>>=
+@
+Sample Mean ($\bar{x}$): \Sexpr{x_bar}\\ 
+Standard Deviation ($\sigma$): \Sexpr{std}\\
+Standard Error: \Sexpr{stderr}\\
+\subsection*{5. Lower Confidence Bound}
+<<B_5,echo=FALSE,eval=TRUE>>=
+@
+Margin of Error: \Sexpr{marg_error}\\
+95\% Lower Confidence Bound: \Sexpr{lower_conf} \\
+\subsection*{6. Testing $\mu > 925$}
+<<B_6,echo=FALSE,eval=TRUE>>=
+@
+\begin{enumerate}
+\item $H_0: \mu = 925$ \\ $H_a: \mu > 925$
+\item $t_t = \Sexpr{b[[1]]}$ \\ $DF =  \Sexpr{b[[2]]}$
+\item P-Value = \Sexpr{b[[3]]}
+\item $\alpha = 0.05$ and P-Value $\leq \alpha$ $(\Sexpr{b[[3]]} \leq 0.05)$ \\ $\Longrightarrow H_0$ is rejected
+\end{enumerate}
+\subsection*{7. Testing $\mu > 935$}
+<<B_7,echo=FALSE,eval=TRUE>>=
+@
+\begin{enumerate}
+\item $H_0: \mu = 935$ \\ $H_a: \mu > 935$
+\item $t_t = \Sexpr{b[[1]]}$ \\ $DF =  \Sexpr{b[[2]]}$
+\item $P-Value = \Sexpr{b[[3]]}$
+\item $\alpha = 0.05$ and P-Value $\nleq \alpha$ $(\Sexpr{b[[3]]} \nleq 0.05)$ \\ $\Longrightarrow$ Not sufficient evidence to reject $H_0$.
+\end{enumerate}
+\subsection*{8. Comparison}
 \pagebreak
 \section*{Code}
 <<ref.label=c('setup','A_1','A_3'),echo=TRUE,eval=FALSE,tidy=TRUE>>=

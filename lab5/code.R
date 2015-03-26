@@ -32,3 +32,18 @@ conf_int <- c(x_bar-marg_error, x_bar+marg_error)
 ## ---- A_4
 t.test(fb_data$Friends,conf.level=0.95, mu=130)
 ## ---- B_1
+my_histogram(pick_data$PickCount, mean(pick_data$PickCount), sd(pick_data$PickCount), col="Blue", xlab="# of Picks")
+my_qqwithline(pick_data$PickCount)
+bwplot(pick_data$PickCount, xlab="# of Picks")
+## ---- B_4
+x_bar <- mean(pick_data$PickCount)
+std <- sd(pick_data$PickCount)
+stderr <- std / sqrt(length(pick_data$PickCount))
+## ---- B_5
+a <- qt(.975, length(pick_data$PickCount)-1)
+marg_error <- a * stderr
+lower_conf <- x_bar-marg_error
+## ---- B_6 
+b <- t.test(pick_data$PickCount, conf.level=0.95, mu = 925, alternative = "greater")
+## ---- B_7
+b <- t.test(pick_data$PickCount, conf.level=0.95, mu = 935, alternative = "greater")
