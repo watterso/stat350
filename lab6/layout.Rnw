@@ -20,14 +20,14 @@ read_chunk("code.R")
 \subsection*{1. Two Sample or Matched Pairs}
 A matched pair t test is more approprate because the experiment is structured so that a measure is taken multiple times on the same subject.
 \subsection*{2. Proving Data is Normal}
-Due to the small size of the data set, the histogram doesn't follow the normal curve to the T (heh), but the quantile plot exhibits the linear characteristic of a normal distribution, proving that the data is roughly normal. \\
+Due to the small size of the data set, the histogram doesn't follow the normal curve to the T (heh), but the quantile plot exhibits the linear characteristic of a normal distribution and the box plots do not have too many outliers, so it can be concluded that the data is roughly normal.\\
 <<A_2,echo=FALSE,fig.height=4>>=
 @
 \subsection*{3. 95\% Confidence of Weight Gain}
 <<A_3,echo=FALSE,eval=TRUE>>=
 @
 The 95\% confidence interval spans from \Sexpr{conf[[4]][1]} to \Sexpr{conf[[4]][2]}, which is reasonable given that the mean of the differences between the paired data sets is \Sexpr{conf[[5]]}.
-\subsection*{4. Testing $H_0 = 16$}
+\subsection*{4. Testing $H_0: \mu = 16$}
 \begin{enumerate}
 \item $H_0: \mu = 16$ \\ $H_a: \mu \neq 16$ \\ $\alpha = 0.05$
 \item $t_t = \Sexpr{conf[[1]]}$ \\ $DF =  \Sexpr{conf[[2]]}$
@@ -41,26 +41,32 @@ Step 3 identifies with 95\% confidence that the mean of the data set is located 
 \subsection*{1. Two Sample or Matched Pairs}
 A two sample t test is more appropriate because the two data sets are independent, and the measure is not something that is repeated on the same subjects, it is a measure performed on different types of subjects.
 \subsection*{2. Proving Data is Normal}
-Due to the small size of the data set, the histogram doesn't follow the normal curve to the T (heh), but the quantile plot exhibits the linear characteristic of a normal distribution, proving that the data is roughly normal. \\
-<<A_2,echo=FALSE,fig.height=4>>=
+The graphs show that the data is roughly normal albeit with left skews. The boxplots show that there are some outliers, but not an appreciable number\\
+<<B_2,echo=FALSE,fig.height=4>>=
 @
-\subsection*{3. 95\% Confidence of Weight Gain}
-<<A_3,echo=FALSE,eval=TRUE>>=
+\subsection*{3. Data not from SRS}
+The use of this data despite it not being from an SRS is justified because it wouldn't make for a very interesting problem otherwise. Also because we are comparing the values relative ot each other, so their specific value is not as relevant as how relatively different they are.
+\subsection*{4. Consideration of One-Sided Alternative}
+<<B_4,echo=FALSE,eval=TRUE>>=
 @
-The 95\% confidence interval spans from \Sexpr{conf[[4]][1]} to \Sexpr{conf[[4]][2]}, which is reasonable given that the mean of the differences between the paired data sets is \Sexpr{conf[[5]]}.
-\subsection*{4. Testing $H_0 = 16$}
+I would not use a one-sided test because the goal of this analysis is to determine if the cost of a 3 bedroom vs 4 bedroom house is significantly different, by comparing their means.
+\subsection*{5. $H_0: \mu_{3bds} = \mu_{4bds}$}
 \begin{enumerate}
-\item $H_0: \mu = 16$ \\ $H_a: \mu \neq 16$ \\ $\alpha = 0.05$
+\item $H_0: \mu_{3bds} = \mu_{4bds}$ \\ $H_a: \mu_{3bds} \neq \mu_{4bds}$ \\ $\alpha = 0.01$
 \item $t_t = \Sexpr{conf[[1]]}$ \\ $DF =  \Sexpr{conf[[2]]}$
 \item P-Value = \Sexpr{conf[[3]]}
 \item P-Value $\leq \alpha$ $(\Sexpr{conf[[3]]} \leq 0.05)$ \\ $\Longrightarrow H_0$ is rejected
 \end{enumerate}
-\subsection*{5. Interpretation}
-Step 3 identifies with 95\% confidence that the mean of the data set is located between \Sexpr{conf[[4]][1]} and \Sexpr{conf[[4]][2]}. In Step 5 the hypothesis of $H_0 \mu = 16$ is rejected. Seeing as 16 is outside the defined confidence interval, these two conclusions are in agreement. As also identified in Step 3, it would be prudent to search for $\mu$ somewhere around the mean of differences of \Sexpr{conf[[5]]}.
+\subsection*{6. 99\% Confidence Interval}
+The 99\% confidence interval spans from \Sexpr{my_format(conf[[4]][1])} to \Sexpr{my_format(conf[[4]][2])}.
+\subsection*{7. Intepretation of Confidence Interval}
+Step 5 identifies with 99\% confidence that the mean of the data set is located between \Sexpr{my_format(conf[[4]][1])} and \Sexpr{my_format(conf[[4]][2])}. This is a very large interval, suggesting that the means of each data set are conceiveably quite far apart.
+\subsection*{8. Conclusions}
+The large interval found in step 6 and the regection of the null hypothesis in step 5 combined prove quite clearly that the asking price for a 3 bedroom and 4 bedroom house are not the same. That is the say one is typically more expensive than the other.
 
 \pagebreak
 \section*{Code}
-<<ref.label=c('setup','A_2','A_3'),echo=TRUE,eval=FALSE,tidy=TRUE>>=
+<<ref.label=c('setup','A_2','A_3','B_2','B_4'),echo=TRUE,eval=FALSE,tidy=TRUE>>=
 @
 
 \end{document}
