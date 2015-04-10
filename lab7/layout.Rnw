@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{amssymb}
+\title{\vspace{-30pt}Stat 350: Lab 7\vspace{-16pt}}
+\author{James Watterson}
+\date{\vspace{-10pt}April 8, 2015}
+\setlength{\voffset}{-.75in}
+\setlength{\headsep}{5pt}
+\setlength{\textheight}{675pt}
+\setlength{\marginparwidth}{40pt}
+\setlength{\textwidth}{436pt}
+\setlength{\oddsidemargin}{8pt}
+<<echo=FALSE>>=
+read_chunk("code.R")
+@
+<<setup,echo=FALSE>>=
+@
+\begin{document}
+\maketitle
+\section*{A. Isoflavones and Bone Density}
+\subsection*{1. Comparison of Treatments}
+The results of the boxplot and the contents of the summarizing table show that a Low Dose of isoflavones results in similar bone density as the Control group (no dose) whereas the bone density of the High Dose group is generally higher that both of these other two groups.
+<<A_1,echo=FALSE,fig.height=3,results='asis'>>=
+@
+\subsection*{2. Assumptions of Anova}
+\subsubsection*{Each sample is an independent random sample}
+Satisfied by the experimental design, assuming the rats were independently chosen, as most lab rats are.
+\subsubsection*{The distribution of the response variable follows a normal distribution}
+The way that the data points follow the line in the quantile plot and the (rough) general shape of the histogram shows that the data follows a normal distribution. Graphs shown below.
+\subsubsection*{The population variances are equal across responses for the group levels}
+Similar standard deviations from the table in A.1 $\Longrightarrow$ equal variances.
+
+<<A_2,echo=FALSE,fig.height=3>>=
+@
+\subsection*{3. Calculation of Anova}
+<<A_3,echo=FALSE>>=
+@
+$\mu_c$ is population mean for control, $\mu_l$ is for Low Dose, and $\mu_h$ is for High Dose.
+\begin{enumerate}
+\item $H_0$ : $\mu_c = \mu_l = \mu_h$ \\ $H_a$ : atleast one $\mu_i$ is different.
+\item $F_t=$ \Sexpr{resume[[1]][[4]][1]}, $DF_1=$ \Sexpr{resume[[1]][[1]][1]}, $DF_2=$ \Sexpr{resume[[1]][[1]][2]}
+\item P-value = \Sexpr{resume[[1]][[5]][1]}
+\item $\alpha=0.05$, \Sexpr{resume[[1]][[5]][1]} $\leq$ 0.05 $\Longrightarrow$ reject $H_0$
+\end{enumerate}
+\subsection*{4. Multiple Comparison}
+The Tukey method was used because it does a pairwise compare of the fitted ANOVA data. As seen in the plot below the interval for the Control and Low Dose populations span negative and positive values, implying similarity. However this phenomena is not seen for the other pairings, supporting the rejection of the hypothesis above.
+
+<<A_4,echo=FALSE,fig.height=3>>=
+@
+\subsection*{5. Conclusion}
+The experiment set out to determine if kudzu isoflavones have any effect on the bone density of rat femurs. Analysis of the data proves that in low dosage isoflavones have a limited effect on bone density, resulting in values quite similar to the control. However in high dosage of isoflavones, there was a marked increase of bone density in rat femurs. If it is accepted that human bone development is very similar to rat bone development, then these results warrant human trials to verify that such bone density gains would also be seen in humans. 
+\section*{B. Exercise and Bone Density}
+\subsection*{1. Comparison of Effects of Jumping Exercises}
+The results of the boxplot and the contents of the summarizing table show that bone health, measured via bone density, and exercise, modeled via jumps are positively correlated. This is shown in the box plots, by the higher mean, median, and inter quartile range of high jumps vs low jumps vs no jumps.
+<<B_1,echo=FALSE,fig.height=3,results='asis'>>=
+@
+\subsection*{2. Assumptions of Anova}
+\subsubsection*{Each sample is an independent random sample}
+Satisfied by the experimental design, assuming the rats were independently chosen, as most lab rats are.
+\subsubsection*{The distribution of the response variable follows a normal distribution}
+The way that the data points follow the line in the quantile plot and the (rough) general shape of the histogram shows that the data follows a normal distribution. However the data for the rats performing low jumps does not strictly follow normal behavior, but for the sake of the exercise, I will accept the error.
+\subsubsection*{The population variances are equal across responses for the group levels}
+Similar standard deviations from the table in B.1 $\Longrightarrow$ equal variances. Although the values may be too far apart to be considered similar, again for the sake of the exercise, I accept them.
+
+<<B_2,echo=FALSE,fig.height=3>>=
+@
+\subsection*{3. Calculation of Anova}
+<<B_3,echo=FALSE>>=
+@
+$\mu_c$ is population mean for control, $\mu_l$ is for low jump exercise, and $\mu_h$ is for high jump exercise.
+\begin{enumerate}
+\item $H_0$ : $\mu_c = \mu_l = \mu_h$ \\ $H_a$ : atleast one $\mu_i$ is different.
+\item $F_t=$ \Sexpr{resume[[1]][[4]][1]}, $DF_1=$ \Sexpr{resume[[1]][[1]][1]}, $DF_2=$ \Sexpr{resume[[1]][[1]][2]}
+\item P-value = \Sexpr{resume[[1]][[5]][1]}
+\item $\alpha=0.05$, \Sexpr{resume[[1]][[5]][1]} $\leq$ 0.05 $\Longrightarrow$ reject $H_0$
+\end{enumerate}
+\subsection*{4. Multiple Comparison}
+The Tukey method was used because it does a pairwise compare of the fitted ANOVA data. As seen in the plot below the interval for the Control and low jump populations span negative and positive values, implying similarity. However this phenomena is not seen for the other pairings, supporting the rejection of the hypothesis above.
+
+<<B_4,echo=FALSE,fig.height=3>>=
+@
+\subsection*{5. Conclusion}
+The experiment set out to determine if exercise any effect on bone density of rats. Analysis of the data proves that less strenous exercise (low jumps) has a limited effect on bone density, resulting in values quite similar to the control. However in strenuous exercise (high jumps), there was a marked increase of bone density in rat femurs. If it is accepted that human bone development is very similar to rat bone development, then these results warrant human trials to verify that such bone density gains would also be seen in humans. 
+\pagebreak
+\section*{Code}
+<<ref.label=c('setup','A_1','A_2','A_3','B_2','B_4'),echo=TRUE,eval=FALSE,tidy=TRUE>>=
+@
+
+\end{document}
