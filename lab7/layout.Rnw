@@ -82,7 +82,7 @@ The Tukey method was used because it does a pairwise compare of the fitted ANOVA
 The experiment set out to determine if exercise any effect on bone density of rats. Analysis of the data proves that less strenous exercise (low jumps) has a limited effect on bone density, resulting in values quite similar to the control. However in strenuous exercise (high jumps), there was a marked increase of bone density in rat femurs. If it is accepted that human bone development is very similar to rat bone development, then these results warrant human trials to verify that such bone density gains would also be seen in humans. 
 \pagebreak
 \section*{Code}
-<<ref.label=c('setup','A_1','A_2','A_3','B_2','B_4'),echo=TRUE,eval=FALSE,tidy=TRUE>>=
+<<ref.label=c('setup','A_1','A_2','A_3','B_2','B_3','B_4'),echo=TRUE,eval=FALSE,tidy=TRUE>>=
 @
 
 \end{document}
