@@ -18,29 +18,35 @@ read_chunk("code.R")
 \maketitle
 \section*{A. House Prices}
 \subsection*{1. Scatterplot and Linear Regression}
-<<A_1,echo=FALSE,fig.height=3,results='asis'>>=
+<<A_1,echo=FALSE,fig.height=4,results='asis'>>=
 @
 \subsection*{2. Characteristics of the Relationship}
 The relationship between the assessed values and the sales prices is strong, positive, and decidely linear. There exist one outlier in particular that was assessed at a high value, but sold at a lower price. For the rest of the data points, they follow roughly the line drawn for the linear regression.
 \subsection*{3. Correlation of Sales Price and Assessed Value}
-<<A_3,echo=FALSE>>=
+<<A_3,echo=FALSE, eval=TRUE>>=
 @
 The correlation coefficient for theses two variables is \Sexpr{sales.cor}, a fairly high value indicating a strong correlation as estimated in part 2.
 \subsection*{4. Appropriateness of Correlation}
 Based on the scatterplot, correlation is an appropriate summary of the data and their relationship. This is the case because there are two variables we are comparing and we are approximating their relationship as linear.
 \subsection*{5. Least-Squares Regression}
-The least-squares regression line used for prediction is: $y=\Sexpr{sales.lm[[1]][[2]]}x+\Sexpr{sales.lm[[1]][[1]]}
-and $r^2$ = \Sexpr{summary(sales.lm)[[9]]}
+<<A_5,echo=FALSE>>=
+@
+The least-squares regression line used for prediction is: \\
+$y=\Sexpr{sales.lm[[1]][[2]]}x+\Sexpr{sales.lm[[1]][[1]]}$\\
+\indent and \\
+$r^2$ = \Sexpr{summary(sales.lm)[[9]]}\\
 \subsection*{6. Prediction}
+<<A_6,echo=FALSE>>=
+@
 Based on the model, that sales price for property 1, with an assessed value of \Sexpr{sales[,3][1]}, should be \Sexpr{sales.predict[1]}.
-This results in the following residual calculation:
-\indent $residual$ = $observed$ - $predicted$
-\indent            = \Sexpr{sales[,2][1]} - \Sexpr{sales.predict[1]}
-\indent $residual$ = \Sexpr{sales[,2][1] - sales.predict[1]}
+This results in the following residual calculation:\\
+\indent $residual$ = $observed$ - $predicted$\\
+\indent $residual$ = \Sexpr{sales[,2][1]} - \Sexpr{sales.predict[1]}\\
+\indent $residual$ = \Sexpr{sales[,2][1] - sales.predict[1]}\\
 
 \pagebreak
 \section*{Code}
-<<ref.label=c('setup','A_1','A_2','A_3'),echo=TRUE,eval=FALSE,tidy=TRUE>>=
+<<ref.label=c('setup','A_1','A_3','A_5','A_6'),echo=TRUE,eval=FALSE,tidy=TRUE>>=
 @
 
 \end{document}

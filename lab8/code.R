@@ -1,4 +1,4 @@
-## ---- Setup
+## ---- setup
 library(lattice)
 lin_reg_plot <- function(data, ...){
   xyplot(data,
