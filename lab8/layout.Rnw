@@ -32,7 +32,7 @@ Based on the scatterplot, correlation is an appropriate summary of the data and 
 <<A_5,echo=FALSE>>=
 @
 The least-squares regression line used for prediction is: \\
-$y=\Sexpr{sales.lm[[1]][[2]]}x+\Sexpr{sales.lm[[1]][[1]]}$\\
+$SalesPrice =\Sexpr{sales.lm[[1]][[2]]} AssessedValue+\Sexpr{sales.lm[[1]][[1]]}$\\
 \indent and \\
 $r^2$ = \Sexpr{summary(sales.lm)[[9]]}\\
 \subsection*{6. Prediction}
@@ -43,10 +43,45 @@ This results in the following residual calculation:\\
 \indent $residual$ = $observed$ - $predicted$\\
 \indent $residual$ = \Sexpr{sales[,2][1]} - \Sexpr{sales.predict[1]}\\
 \indent $residual$ = \Sexpr{sales[,2][1] - sales.predict[1]}\\
-
+\subsection*{7. Residuals}
+As seen in the graph below there is no clear pattern in the residuals. The small scale on the y-axis (compare 50 to 150000) proves the assumption of a constant standard deviation. These conclusions agree with early decisions that the the relationship of sales price and assessed value is best modeled via a linear model.\\
+<<A_7,echo=FALSE,fig.height=3>>=
+@
+\subsection*{8. Distribution of Residuals}
+The distribution of the residuals appear to be normal, proved by the fit of the histogram in its guide line and the way the residuals lie so close to the line in the quantile plot. \\
+<<A_8,echo=FALSE,fig.height=3>>=
+@
+\subsection*{9. Assumption of Linear Regression}
+The assumptions of linear regression do appear to be reasonable, as the we have proven the nearly constant standard deviation observed in part 1 with the plot in part 7, and in part 8 the fact that the residuals follow a normal distribution.
+\subsection*{10. Assessed Value as the Response Variable}
+<<A_10,echo=FALSE,fig.height=3,results='asis'>>=
+@
+The correlation coefficient for Sales Price on Assessed Value is \Sexpr{sales.cor1}. \\
+\indent The least-squares regression line used for prediction is: \\
+\indent $ AssessedValue =\Sexpr{sales.lm1[[1]][[2]]} SalesPrice+\Sexpr{sales.lm1[[1]][[1]]}$\\
+\indent \indent and \\
+\indent $r^2$ = \Sexpr{summary(sales.lm1)[[9]]}\\
+\subsection*{11. Comparison of Relationships}
+As expected the formula for the regression line differs, but the other values are the same, and the graph is just distributed to another part of the plot. It seems that the inverted relationship of Assessed Value as a response to Sales Price could also be modeled via linear regression.
+\subsection*{12. 99\% Confidence of Fit}
+<<A_12,echo=FALSE>>=
+@
+Slope: We are 99\% confident that the slope lies in the range $($\Sexpr{sales.conf[2]}, \Sexpr{sales.conf[4]}$)$ \\
+Intercept: We are 99\% confident that the intercept lies in the range $($\Sexpr{sales.conf[1]}, \Sexpr{sales.conf[3]}$)$\\
+\subsection*{13. Significant Evidence}
+<<A_13,echo=FALSE>>=
+@
+\begin{enumerate}
+\item $H_0$ : $\beta_1 = 0$ \\ $H_a$ : $\beta_1 \neq 0$
+\item $t_t=$ \Sexpr{resume[[4]][6]}, $DF=$ \Sexpr{resume[[7]][2]}
+\item P-value = \Sexpr{resume[[4]][8]}
+\item $\alpha=0.01$, \Sexpr{resume[[4]][8]} $\leq$ 0.01 $\Longrightarrow$ reject $H_0$
+\end{enumerate}
+\subsection*{14. Comparison}
+\subsection*{15. Conclusion}
 \pagebreak
 \section*{Code}
-<<ref.label=c('setup','A_1','A_3','A_5','A_6'),echo=TRUE,eval=FALSE,tidy=TRUE>>=
+<<ref.label=c('setup','A_1','A_3','A_5','A_6','A_7','A_8','A_10','A_12','A_13'),echo=TRUE,eval=FALSE,tidy=TRUE>>=
 @
 
 \end{document}
